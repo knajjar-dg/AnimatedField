@@ -323,6 +323,10 @@ open class AnimatedField: UIView {
         datePicker?.minimumDate = minDate
         datePicker?.setValue(format.textColor, forKey: "textColor")
         
+        if #available(iOS 13.4, *) {
+            datePicker?.preferredDatePickerStyle = .wheels
+        }
+        
         let toolBar = UIToolbar(target: self, selector: #selector(didChooseDatePicker))
 		
         textField.inputAccessoryView = accessoryView ?? toolBar
